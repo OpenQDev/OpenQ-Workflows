@@ -35,7 +35,7 @@ jobs:
           git clone https://${{ secrets.PAT }}@github.com/openqdev/OpenQ-Helm.git
           cd OpenQ-Helm/
 
-          yq -i '.${{ inputs.APP }}.image.tag = ' values-${{ inputs.ENVIRONMENT }}.yaml
+          yq -i '.${{ inputs.APP }}.image.tag = "${{ inputs.VERSION }}"' values-${{ inputs.ENVIRONMENT }}.yaml
 
           TAG=${{ inputs.ENVIRONMENT }}-$(date +'%Y-%m-%d-%H-%M')
 
