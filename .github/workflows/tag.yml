@@ -35,9 +35,9 @@ jobs:
           git clone https://${{ secrets.PAT }}@github.com/openqdev/OpenQ-Helm.git
           cd OpenQ-Helm/
 
-          yq -i '.${{env.APP}}.image.tag = ' values-${{ env.ENVIRONMENT }}.yaml
+          yq -i '.${{ inputs.APP }}.image.tag = ' values-${{ inputs.ENVIRONMENT }}.yaml
 
-          TAG=${{ env.ENVIRONMENT }}-$(date +'%Y-%m-%d-%H-%M')
+          TAG=${{ inputs.ENVIRONMENT }}-$(date +'%Y-%m-%d-%H-%M')
 
           git add .
           git commit -m "[CIRCLE CI] ${TAG}"
