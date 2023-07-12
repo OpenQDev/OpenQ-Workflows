@@ -1,4 +1,4 @@
-name: Update Helm
+name: Update Helm Chart with new VERSION of APP and Deploy to ENVIRONMENT
 
 on:
   workflow_call:
